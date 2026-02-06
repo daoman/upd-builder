@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "upd-builder"
+version = "1.0.2"
+description = "Генератор валидного УПД (Универсального Передаточного Документа) в формате XML файла в соответствии со спецификацей XSD v5.03"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Georgy", email = "givi.zirabuch@gmail.com"}
+]
+keywords = [
+    "upd",
+    "xml",
+    "russian",
+    "tax",
+    "diadoc",
+    "transfer document",
+    "счет-фактура",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Office/Business :: Financial :: Accounting",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Natural Language :: Russian",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+yaml = ["ruamel.yaml>=0.17.0"]
+validation = ["xmlschema>=2.0.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=0.990",
+    "ruamel.yaml>=0.17.0",
+    "xmlschema>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/daoman/upd-builder"
+Documentation = "https://github.com/daoman/upd-builder/tree/main/docs"
+Repository = "https://github.com/daoman/upd-builder.git"
+Issues = "https://github.com/daoman/upd-builder/issues"
+
+[tool.setuptools]
+packages = ["upd_builder"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  |  \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["upd_builder"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
