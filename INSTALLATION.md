@@ -45,19 +45,6 @@ pip install -e ".[validation]"
 pip install -e ".[dev]"
 ```
 
-### Option 3: Prepare for PyPI Distribution
-
-```bash
-# Install build tools
-pip install build twine
-
-# Build the package
-python -m build
-
-# Upload to PyPI (after registering)
-twine upload dist/*
-```
-
 ## 📖 Quick Start
 
 ### 1. Import and Use
