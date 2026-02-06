@@ -7,7 +7,7 @@ Thank you for considering contributing to UPD Builder! Here's how you can help.
 ### Fork & Clone
 
 ```bash
-git clone https://github.com/yourusername/upd-builder.git
+git clone https://github.com/daoman/upd-builder.git
 cd upd-builder
 ```
 
